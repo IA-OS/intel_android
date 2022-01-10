@@ -1,0 +1,16 @@
+partition_table=gpt
+create -z /dev/block/mmcblk0
+create /dev/block/mmcblk0
+boot -p /dev/block/mmcblk0
+reload /dev/block/mmcblk0
+add -b 34 -s 335872 -t efi -u 80868086-8086-8086-8086-000000000000 -l reserved -T 0 -P 0 /dev/block/mmcblk0
+add -b 335906 -s 16384 -t efi -u 80868086-8086-8086-8086-000000000001 -l panic -T 0 -P 0 /dev/block/mmcblk0
+add -b 352290 -s 65536 -t data -u 80868086-8086-8086-8086-000000000002 -l factory -T 0 -P 0 /dev/block/mmcblk0
+add -b 417826 -s 262144 -t data -u 80868086-8086-8086-8086-000000000003 -l spare -T 0 -P 0 /dev/block/mmcblk0
+add -b 679970 -s 262144 -t data -u 80868086-8086-8086-8086-000000000004 -l config -T 0 -P 0 /dev/block/mmcblk0
+add -b 942114 -s 1572864 -t data -u 80868086-8086-8086-8086-000000000005 -l cache -T 0 -P 0 /dev/block/mmcblk0
+add -b 2514978 -s 524288 -t data -u 80868086-8086-8086-8086-000000000006 -l logs -T 0 -P 0 /dev/block/mmcblk0
+add -b 3039266 -s 2621440 -t data -u 80868086-8086-8086-8086-000000000007 -l system -T 0 -P 0 /dev/block/mmcblk0
+add -b 5660706 -s 4194304 -t data -u 80868086-8086-8086-8086-000000000008 -l data -T 0 -P 0 /dev/block/mmcblk0
+add -b 9855010 -s $calc($lba_end-16384) -t data -u 80868086-8086-8086-8086-000000000009 -l sdcard -T 0 -P 0 /dev/block/mmcblk0
+reload /dev/block/mmcblk0

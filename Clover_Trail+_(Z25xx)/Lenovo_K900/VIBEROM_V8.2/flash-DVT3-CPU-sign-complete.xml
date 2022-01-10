@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flashfile version="1">
+    <id>VIBEROM V8 by QUBEX @XDA</id>
+    <platform>VIBEROM V8 by QUBEX @XDA</platform>
+    	<code_group name="FIRWMARE">
+		      <file TYPE="SOFTFUSE">
+				<name>signed_soft_key_CLAK.bin</name>
+			        <version>signed_soft_key_CLAK</version>
+		      </file>
+		      <file TYPE="IFWI">
+					    <name>CLVP_CLAK_ww42_002_sos_IFWI.bin</name>
+					    <version>CLVP_CLAK_ww42_002_sos_IFWI</version>
+		      </file>
+		      <file TYPE="FW_DNX">
+					    <name>CLVP_CLAK_ww42_002_FwDnx.bin</name>
+					    <version>CLVP_CLAK_ww42_002_FwDnx</version>
+		      </file>
+		      <file TYPE="OS_DNX">
+					    <name>CLVP_CLAK_ww42_002_OsDnx.bin</name>
+					    <version>CLVP_CLAK_ww42_002_OsDnx</version>
+		      </file></code_group>
+			<code_group name="BOOTLOADER">
+		      <file TYPE="KBOOT">
+		          <name>pos.bin</name>
+		          <version></version>
+		      </file></code_group>
+		  <code_group name="LOGO">
+		      <file TYPE="LOGO">
+		          <name>rocket_start_logo-1080,480-2.bmp.stitched.signed.bin</name>
+			  <version></version>
+		      </file></code_group>
+		  <code_group name="NV">
+		      <file TYPE="NV">
+			  <name>NV_130119.tlv</name>
+		          <version></version>
+		      </file></code_group>
+	    <code_group name="KERNEL">
+	        <file TYPE="KERNEL">
+	            <name>boot.img</name>
+	            <version></version>
+	        </file></code_group>
+	    <code_group name="MODEM">
+          <file TYPE="MODEM">
+              <name>modem.zip</name>
+              <version></version>
+          </file></code_group>
+			<code_group name="RECOVERY">
+          <file TYPE="RECOVERY">
+              <name>recovery.img</name>
+              <version></version>
+          </file></code_group>
+			<code_group name="FASTBOOT">
+          <file TYPE="FASTBOOT">
+              <name>droidboot.img</name>
+              <version></version>
+          </file></code_group>
+			<code_group name="SYSTEM">
+          <file TYPE="SYSTEM">
+              <name>system.img.gz</name>
+              <version></version>
+          </file></code_group>
+	<code_group name="CONFIG">
+ 	    <file TYPE="PARTITION_TABLE">
+		<name>partition.tbl</name> 
+		<version /> 
+  	    </file>
+        </code_group>
+        <command>
+  	    <string>fastboot oem start_partitioning</string> 
+  	    <timeout>60000</timeout> 
+  	    <retry>2</retry> 
+ 	    <description>Start partitioning</description> 
+        </command>
+        <command>
+  	    <string>fastboot flash /tmp/partition.tbl $partition_table_file</string> 
+  	    <timeout>60000</timeout> 
+  	    <retry>2</retry> 
+  	    <description>Push partition table on device</description> 
+	</command>
+	<command>
+		<string>fastboot oem partition /tmp/partition.tbl</string>
+		<timeout>60000</timeout>
+		<retry>2</retry>
+		<description>Apply partition table</description>
+      </command>
+      <command>
+		<string>fastboot erase factory</string>
+		<timeout>400000</timeout>
+		<retry>2</retry>
+		<description>erase factory partition</description>
+	</command>
+	<command>
+		<string>fastboot erase logs</string>
+		<timeout>400000</timeout>
+		<retry>2</retry>
+		<description>erase factory partition</description>
+	</command>
+		<command>
+          <string>fastboot erase cache</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>erase cache partition</description>
+			</command>
+			<command>
+          <string>fastboot erase config</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>erase config partition</description>
+			</command>
+			<command>
+          <string>fastboot erase data</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>erase data partition</description>
+			</command>
+			<command>
+          <string>fastboot erase spare</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>erase spare partition</description>
+			</command>
+	  		<command>
+	              <string>fastboot erase system</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+	    		<description>erase system partition</description>
+			</command>
+	  <command>
+ 	    <string>fastboot oem stop_partitioning</string> 
+	    <timeout>60000</timeout> 
+ 	    <retry>2</retry> 
+ 	    <description>Stop partitioning</description> 
+	</command>		
+			<command>
+          <string>fastboot flash system $system_file</string>
+          <timeout>4000000</timeout>
+          <retry>2</retry>
+          <description>Flashing System</description>
+			</command>
+			
+			<command>
+					<string>fastboot flash radio $modem_file</string>
+					<timeout>400000</timeout>
+					<retry>2</retry>
+					<description>Flashing modem</description>
+			</command>
+			<command>
+					<string>fastboot flash /tmp/NV_130119.tlv $nv_file</string>
+					<timeout>400000</timeout>
+					<retry>2</retry>
+					<description>Flashing nv</description>
+			</command>
+			<command>
+					<string>fastboot flash splashscreen $logo_file</string>
+					<timeout>400000</timeout>
+					<retry>2</retry>
+					<description>Flashing logo</description>
+			</command>
+			<command>
+					<string>fastboot oem nvm apply /tmp/NV_130119.tlv</string>
+					<timeout>400000</timeout>
+					<retry>5</retry>
+					<description>apply NV</description>
+			</command>
+			<command>
+          <string>fastboot flash fastboot $fastboot_file</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>Flashing fastboot</description>
+      </command>
+      <command>
+          <string>fastboot flash recovery $recovery_file</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>Flashing recovery</description>
+			</command>
+			<command>
+          <string>fastboot flash boot $kernel_file</string>
+          <timeout>400000</timeout>
+          <retry>2</retry>
+          <description>Flashing boot</description>
+			</command>
+		<gpflag>
+				<value>0x80000045</value>
+    </gpflag>
+</flashfile>

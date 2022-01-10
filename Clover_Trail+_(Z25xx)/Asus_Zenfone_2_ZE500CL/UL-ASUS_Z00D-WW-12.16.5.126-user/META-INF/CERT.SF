@@ -1,0 +1,40 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+SHA1-Digest-Manifest: 09POwFgvqym9weqjiyLscF1VViI=
+
+Name: file_contexts
+SHA1-Digest-Manifest: I0/7sKTI7mz6apJ1FSkumAPTREs=
+
+Name: ifwi.zip
+SHA1-Digest-Manifest: mpSPIvtwt35TK+MB5swBzoHlVkY=
+
+Name: boot.img
+SHA1-Digest-Manifest: 243AgwLeNRpeOW8rPEstUhjv0gc=
+
+Name: system.patch.dat
+SHA1-Digest-Manifest: 774VWw1Wa8Y+IPKHHCeM6N//yzE=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest-Manifest: CAVz7ppttpkKePlLbLRU8LC32lA=
+
+Name: META-INF/com/android/metadata
+SHA1-Digest-Manifest: 0MplrvQrK2Ab+RhBsm5vYjewpoc=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest-Manifest: pjWO+g1+4eS+AiAzZB2Z3/BD0Ko=
+
+Name: asusfw.img
+SHA1-Digest-Manifest: G77sHK9P0azdBu7u/qIqWymO5U4=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest-Manifest: 5ns8aDssND4X+MbDVgyHAmYxerk=
+
+Name: droidboot.img
+SHA1-Digest-Manifest: VjZZIw3zfJ5I38mLo93N1WvP5Z0=
+
+Name: system.transfer.list
+SHA1-Digest-Manifest: Iax5klsEjZLGkKOiAkx6Cgf5aOI=
+
+Name: system.new.dat
+SHA1-Digest-Manifest: IO+e1SFxrCXSR+zhEt4LMwJ138w=
+

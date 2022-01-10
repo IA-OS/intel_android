@@ -1,0 +1,3 @@
+post-build=intel/XOLO_X900/blackbay:4.0.4/AZ510_ICS_02.31I/0321.163154:user/release-keys
+post-timestamp=1363854746
+pre-device=blackbay

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flashfile>
+    <id>system</id>
+    <comments>COMMENTS</comments>
+    <platform>mfld_pr2</platform>
+    <code_groups>
+        <code_group name="FIRMWARE">
+            <file TYPE="IFWI">
+                <name>IFWI_GI_DV1.0_v0E.BB_CAAB_PPD.bin</name>
+                <version>IFWI</version>
+                <checksum></checksum>
+            </file>
+            <file TYPE="FW_DNX">
+                <name>CAAB-Signed_PNW_D1_FWR_DnX.FD.07.bin</name>
+                <version>FW_DNX</version>
+                <checksum></checksum>
+            </file>
+            <file TYPE="OS_DNX">
+                <name>CAAB-Signed_PNW_D1_OSR_DnX.0D.08.bin</name>
+                <version>OS_DNX</version>
+                <checksum></checksum>
+            </file>
+        </code_group>
+        <code_group name="RECOVERY">
+            <file TYPE="RECOVERY">
+                <name>LEXUG-recovery_ota.img</name>
+                <version></version>
+                <offset></offset>
+                <fixed_size></fixed_size>
+                <checksum></checksum>
+            </file>
+        </code_group>
+        <code_group name="BOOTLOADER">
+            <file TYPE="KBOOT">
+                <name>LEXUG-droidboot_ota-CAAK-POS.bin</name>
+                <version></version>
+                <offset></offset>
+                <fixed_size></fixed_size>
+                <checksum></checksum>
+            </file>
+        </code_group>
+        <code_group name="OTA">
+            <file TYPE="OTA">
+                <name>update.zip</name>
+                <version>system</version>
+                <offset></offset>
+                <fixed_size></fixed_size>
+                <checksum></checksum>
+            </file>
+        </code_group>
+	
+    </code_groups>
+    <commands>
+        <command>
+            <string>fastboot erase factory</string>
+            <timeout>30000</timeout>
+            <retry>60</retry>
+            <description>Erasing factory</description>
+        </command>
+        <command>
+            <string>fastboot erase system</string>
+            <timeout>60000</timeout>
+            <retry>6</retry>
+            <description>Erasing system</description>
+        </command>
+        <command>
+            <string>fastboot erase cache</string>
+            <timeout>30000</timeout>
+            <retry>6</retry>
+            <description>Erasing cache</description>
+        </command>
+        <command>
+            <string>fastboot erase data</string>
+            <timeout>45000</timeout>
+            <retry>2</retry>
+            <description>Erasing data</description>
+        </command>
+	
+        <command>
+            <string>fastboot flash recovery $recovery_file</string>
+            <timeout>60000</timeout>
+            <retry>6</retry>
+            <description>Flash Recovery</description>
+        </command>
+        <command>
+            <string>fastboot flash update $ota_file</string>
+            <timeout>3000000</timeout>
+            <retry>6</retry>
+            <description>Flashing OTA</description>
+        </command>
+    </commands>
+    <gpflag>   
+          <value>0x80000005</value> 
+    </gpflag> 
+</flashfile>

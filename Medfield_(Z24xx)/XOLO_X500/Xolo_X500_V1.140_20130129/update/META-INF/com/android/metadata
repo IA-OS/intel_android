@@ -1,0 +1,3 @@
+post-build=intel/XOLO_X500/zeeyabeach:4.0.4/IMM76D/0129.181628:user/release-keys
+post-timestamp=1359454622
+pre-device=zeeyabeach

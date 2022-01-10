@@ -1,0 +1,26 @@
+partition_table=gpt
+create -z /dev/block/mmcblk0
+create /dev/block/mmcblk0
+boot -p /dev/block/mmcblk0
+reload /dev/block/mmcblk0
+add -b 40 -s 32768 -t data -u 80868086-8086-8086-8086-000000000100 -l boot -T 3 -P 15 /dev/block/mmcblk0
+add -b 32808 -s 32768 -t data -u 80868086-8086-8086-8086-000000000101 -l recovery -T 3 -P 14 /dev/block/mmcblk0
+add -b 65576 -s 32768 -t data -u 80868086-8086-8086-8086-000000000102 -l fastboot -T 3 -P 13 /dev/block/mmcblk0
+add -b 98344 -s 344064 -t data -u 80868086-8086-8086-8086-000000000000 -l reserved -T 0 -P 0 /dev/block/mmcblk0
+add -b 442408 -s 8192 -t data -u 80868086-8086-8086-8086-000000000103 -l splashscreen -T 3 -P 12 /dev/block/mmcblk0
+add -b 450600 -s 32768 -t data -u 80868086-8086-8086-8086-000000000104 -l boot-one-shot -T 3 -P 11 /dev/block/mmcblk0
+add -b 483368 -s 32768 -t data -u 80868086-8086-8086-8086-000000000105 -l ramdump -T 3 -P 11 /dev/block/mmcblk0
+add -b 516136 -s 4096 -t data -u 80868086-8086-8086-8086-000000000106 -l silentlake -T 3 -P 10 /dev/block/mmcblk0
+add -b 520232 -s 2048 -t data -u 80868086-8086-8086-8086-000000000107 -l userkeystore -T 3 -P 10 /dev/block/mmcblk0
+add -b 522280 -s 2048 -t data -u 80868086-8086-8086-8086-000000000108 -l persistent -T 3 -P 10 /dev/block/mmcblk0
+add -b 524328 -s 65536 -t data -u 80868086-8086-8086-8086-000000000001 -l panic -T 0 -P 0 /dev/block/mmcblk0
+add -b 589864 -s 16384 -t data -u 80868086-8086-8086-8086-000000000002 -l factory -T 0 -P 0 /dev/block/mmcblk0
+add -b 606248 -s 8192 -t data -u 80868086-8086-8086-8086-000000000003 -l misc -T 0 -P 0 /dev/block/mmcblk0
+add -b 614440 -s 65536 -t data -u 80868086-8086-8086-8086-000000000005 -l config -T 0 -P 0 /dev/block/mmcblk0
+add -b 679976 -s 65536 -t data -u 80868086-8086-8086-8086-00000000000a -l ADF -T 0 -P 0 /dev/block/mmcblk0
+add -b 745512 -s 819200 -t data -u 80868086-8086-8086-8086-00000000000b -l APD -T 0 -P 0 /dev/block/mmcblk0
+add -b 1564712 -s 65536 -t data -u 80868086-8086-8086-8086-00000000000c -l firmware -T 0 -P 0 /dev/block/mmcblk0
+add -b 1630248 -s 2801664 -t data -u 80868086-8086-8086-8086-000000000006 -l cache -T 0 -P 0 /dev/block/mmcblk0
+add -b 4431912 -s 4194304 -t data -u 80868086-8086-8086-8086-000000000008 -l system -T 0 -P 0 /dev/block/mmcblk0
+add -b 8626216 -s $calc($lba_end-16384) -t data -u 80868086-8086-8086-8086-000000000009 -l data -T 0 -P 0 /dev/block/mmcblk0
+reload /dev/block/mmcblk0

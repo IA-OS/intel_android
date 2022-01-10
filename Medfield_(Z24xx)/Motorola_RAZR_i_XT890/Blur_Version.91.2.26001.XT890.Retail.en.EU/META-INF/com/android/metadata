@@ -1,0 +1,4 @@
+post-build=motorola/XT890_rteu/smi:4.4.2/KIA20.74/55:user/release-keys
+post-timestamp=1420570899
+pre-build=motorola/XT890_rtcoreeu/smi:4.1.2/9.8.2I-50_SMI-26/1358465787:user/release-keys
+pre-device=smi

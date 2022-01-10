@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flashing>
+	<header>
+		<phone_model model="Scorpion Mini I LATAM"/>
+		<software_version version="XT890_retbr-user 4.1.2 9.8.2I-50_SML-29 1370987276 release-keysSUNRISE_SMB_REV30_V2_R3_1251.B"/>
+		<interfaces>
+			<interface name="AP"/>
+		</interfaces>
+	</header>
+	<steps interface="AP">
+		<step operation="getvar" var="max-download-size" />
+		<step operation="flash" partition="gpt" filename="gpt_signed" MD5="df2e696405aa46c48dca6e7de5efdd84"/>
+		<step operation="oem" var="fb_mode_set"/>
+		<step operation="flash" partition="motoboot" filename="motoboot" MD5="6fed55d1812fd15b98b65baf5d5eea91"/>
+		<step operation="reboot-bootloader"/>
+		<step operation="flash" partition="boot" filename="boot_signed" MD5="38f11580a59536b56a45371d1de1f233"/>
+		<step operation="flash" partition="recovery" filename="recovery_signed" MD5="297ccc213166db4cd227d79ed7d4a1f5"/>
+		<step operation="flash" partition="motobp" filename="motobp" MD5="30aed3a6217273b8c681dce7a92270f4"/>
+		<step operation="flash" partition="system" filename="system_signed" MD5="3b2db2e15f6ea86d06e0a21895187f5b"/>
+		<step operation="flash" partition="cdrom" filename="cdrom_signed" MD5="0bdf3e77c2027d7f8e9264e66a7ae31a"/>
+		<step operation="erase" partition="userdata"/>
+		<step operation="erase" partition="cache"/>
+		<step var="fb_mode_clear" operation="oem"/>
+	</steps>
+</flashing>

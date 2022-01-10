@@ -1,0 +1,12 @@
+getprop("ro.product.device") == "ASUS_Z00D" || abort("This package is for \"ASUS_Z00D\" devices; this is a \"" + getprop("ro.product.device") + "\".");
+prepare_user_upgrade(WW);
+show_progress(0.750000, 0);
+block_image_update("/dev/block/by-name/system", package_extract_file("system.transfer.list"), "system.new.dat", "system.patch.dat");
+show_progress(0.050000, 5);
+write_osip_image(package_extract_file("boot.img"), "/dev/block/by-name/boot");
+package_extract_file("asusfw.img", "/dev/block/by-name/asusfw");
+show_progress(0.200000, 10);
+write_osip_image(package_extract_file("droidboot.img"), "/dev/block/by-name/fastboot");
+package_extract_file("ifwi.zip", "/tmp/ifwi.zip");
+flash_ifwi("/tmp/ifwi.zip");
+restore_os("boot");
